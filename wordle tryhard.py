@@ -80,7 +80,7 @@ def write(char, move_to, select_to):
 def filter(items):
     poss_list_import = wl.possible_word_list.copy()
     poss_list.clear()
-    poss_list.extend(wl.mass_filter(items, poss_list_import))
+    poss_list.extend(wl.filter_by_row(items, poss_list_import))
     table.delete(*table.get_children())
     lend = len(poss_list)
     modd = lend % 4
@@ -447,18 +447,16 @@ ttk.Button(window, text = 'RESET', command = reset).pack(pady = 15)
 window.bind('<Control-BackSpace>', lambda event: reset())
 
 # table
-columns = ('col1', 'col2', 'col3', 'col4', 'col_useless_fuxk')
+columns = ('col1', 'col2', 'col3', 'col4', 'col_useless_fuck')
 table = ttk.Treeview(window,
                      columns = columns,
                      show = 'tree')
 table.column("#0", width=0)
 for column in columns[:-1]:
     table.heading(column, text = '')
-    table.column(column = column, width=80)
-table.column("col_useless_fuxk", width=10)
+    table.column(column = column, width=85)
+table.column("col_useless_fuck", width=10)
 table.pack(pady = 5)
-
-
 
 # run
 window.mainloop()
